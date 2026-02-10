@@ -7,7 +7,28 @@ Welcome to the WezTerm config wiki. This is a knowledge base for tracking how th
 - [Getting Started](guides/getting-started.md) -- How the config works and how to modify it
 - [Changelog](changelog/2026-02.md) -- Recent changes and progress
 - **Projects**
-  - [NOAA GOES Image Viewer](projects/noaa-goes-image-viewer.md) -- Using NOAA satellite imagery as a live terminal background
+  - *Completed*
+    - [Standalone Config Repo](projects/standalone-config-repo.md) -- Why this repo exists as a standalone config
+    - [NOAA GOES Image Viewer](projects/noaa-goes-image-viewer.md) -- Live satellite imagery as terminal background
+  - *Config Features*
+    - [Dynamic Color Schemes](projects/dynamic-color-schemes.md) -- Random color scheme picker with dark/light awareness
+    - [Per-Session Wallpapers](projects/per-session-wallpapers.md) -- Different wallpaper per tmux session
+    - [Persistent Config State](projects/persistent-config-state.md) -- Save runtime config changes across restarts
+    - [Battery-Aware Rendering](projects/battery-aware-rendering.md) -- Switch GPU power preference on battery
+    - [Diffview Font Scaling](projects/diffview-font-scaling.md) -- Adjust font size for Neovim diffview
+    - [Animated Backgrounds](projects/animated-backgrounds.md) -- Animated art driven by Claude Code events
+    - [Home Screen](projects/home-screen.md) -- CMD+h dashboard for the current session
+  - *Wallpaper Sources*
+    - [YouTube Thumbnail Wallpapers](projects/youtube-thumbnail-wallpapers.md) -- Fetch YouTube thumbnails as wallpapers via CLI
+  - *Developer Workflow*
+    - [Worktree Config Switching](projects/worktree-config-switching.md) -- Git worktrees + symlinks to swap active config
+    - [WezTerm & Lua Documentation](projects/wezterm-lua-docs.md) -- Reference docs for WezTerm config and Lua
+  - *Skills*
+    - [Feature Skill](projects/feature-skill.md) -- /feature for planning new WezTerm features
+    - [Refactor Skill](projects/refactor-skill.md) -- /refactor for guided module refactoring
+    - [Learn Lua Skill](projects/learn-lua-skill.md) -- /learn for interactive Lua education
+    - [Track WezTerm Releases](projects/track-wezterm-releases.md) -- Monitor WezTerm GitHub releases
+    - [Share Skill](projects/share-skill.md) -- /share for blog posts and tweets about features
 
 ## Architecture Overview
 
