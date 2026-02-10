@@ -6,6 +6,8 @@ Welcome to the WezTerm config wiki. This is a knowledge base for tracking how th
 
 - [Getting Started](guides/getting-started.md) -- How the config works and how to modify it
 - [Changelog](changelog/2026-02.md) -- Recent changes and progress
+- **Projects**
+  - [NOAA GOES Image Viewer](projects/noaa-goes-image-viewer.md) -- Using NOAA satellite imagery as a live terminal background
 
 ## Architecture Overview
 
