@@ -1,4 +1,6 @@
+---@type Wezterm
 local wezterm = require("wezterm")
+local h = require("utils/helpers")
 local M = {}
 
 local DEFAULTS = {
@@ -7,34 +9,18 @@ local DEFAULTS = {
 	cache_filename = "live-wallpaper.jpg",
 }
 
-local function is_dark(appearance)
-	if appearance == nil then
-		appearance = wezterm.gui.get_appearance()
-	end
-	return appearance:find("Dark")
-end
-
-local function get_random_entry(tbl)
-	local keys = {}
-	for key, _ in ipairs(tbl) do
-		table.insert(keys, key)
-	end
-	local randomKey = keys[math.random(1, #keys)]
-	return tbl[randomKey]
-end
-
 local function make_overlay(appearance, dark_opacity, light_opacity)
 	dark_opacity = dark_opacity or 0.8
 	light_opacity = light_opacity or 0.8
 	return {
 		source = {
 			Gradient = {
-				colors = { is_dark(appearance) and "#000000" or "#ffffff" },
+				colors = { h.is_dark(appearance) and "#000000" or "#ffffff" },
 			},
 		},
 		width = "100%",
 		height = "100%",
-		opacity = is_dark(appearance) and dark_opacity or light_opacity,
+		opacity = h.is_dark(appearance) and dark_opacity or light_opacity,
 	}
 end
 
@@ -52,7 +38,7 @@ end
 
 local function get_random_wallpaper(glob_path)
 	local glob = wezterm.glob(glob_path)
-	local wallpaper = get_random_entry(glob)
+	local wallpaper = h.get_random_entry(glob)
 	return make_wallpaper_layer(wallpaper)
 end
 
@@ -173,7 +159,7 @@ M.apply_to_config = function(config, opts)
 		local overrides = window:get_config_overrides() or {}
 		local appearance = window:get_appearance()
 
-		if is_dark(appearance) then
+		if h.is_dark(appearance) then
 			state.dark_opacity = math.min(1.0, state.dark_opacity + 0.01)
 		else
 			state.light_opacity = math.min(1.0, state.light_opacity + 0.01)
@@ -191,7 +177,7 @@ M.apply_to_config = function(config, opts)
 		local overrides = window:get_config_overrides() or {}
 		local appearance = window:get_appearance()
 
-		if is_dark(appearance) then
+		if h.is_dark(appearance) then
 			if (state.dark_opacity - 0.01) < 0.0 then
 				wezterm.log_info("Minimum dark opacity reached")
 				return

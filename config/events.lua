@@ -1,0 +1,35 @@
+---@type Wezterm
+local wezterm = require("wezterm")
+local M = {}
+
+M.apply_to_config = function(_config)
+	wezterm.on("user-var-changed", function(window, pane, name, value)
+		local overrides = window:get_config_overrides() or {}
+		wezterm.log_info("name", name)
+		wezterm.log_info("value", value)
+
+		if name == "COLOR_SCHEME" then
+			overrides.color_scheme = value
+		end
+
+		if name == "ZEN_MODE" then
+			local incremental = value:find("+")
+			local number_value = tonumber(value)
+			if incremental ~= nil then
+				while number_value > 0 do
+					window:perform_action(wezterm.action.IncreaseFontSize, pane)
+					number_value = number_value - 1
+				end
+			elseif number_value < 0 then
+				window:perform_action(wezterm.action.ResetFontSize, pane)
+				overrides.font_size = nil
+			else
+				overrides.font_size = number_value
+			end
+		end
+
+		window:set_config_overrides(overrides)
+	end)
+end
+
+return M
