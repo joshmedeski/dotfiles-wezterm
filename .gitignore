@@ -1,1 +1,6 @@
 .DS_Store
+
+# Obsidian
+wiki/.obsidian/workspace.json
+wiki/.obsidian/workspace-mobile.json
+wiki/.obsidian/plugins/*/data.json
