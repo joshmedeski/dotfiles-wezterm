@@ -21,13 +21,13 @@ require("config/keys").apply_to_config(config)
 require("config/events").apply_to_config(config)
 require("config/background").apply_to_config(config, {
 	wallpapers_glob = os.getenv("HOME") .. "/.config/wezterm/wallpapers/**",
-	dark_opacity = 0.85,
+	dark_opacity = 0.95,
 	light_opacity = 0.65,
 	live = {
 		url = "https://cdn.star.nesdis.noaa.gov/GOES16/ABI/CONUS/GEOCOLOR/2500x1500.jpg",
 		refresh_interval = 300,
-		dark_opacity = 0.78,
-		light_opacity = 0.6,
+		dark_opacity = 0.95,
+		light_opacity = 0.65,
 	},
 })
 
