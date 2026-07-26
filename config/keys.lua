@@ -6,6 +6,7 @@ local M = {}
 
 M.apply_to_config = function(config)
 	config.keys = {
+		k.cmd_shift_to_tmux_prefix("!", "!"),
 		k.cmd_key(".", k.multiple_actions(":Zen")),
 		k.cmd_key("[", act.SendKey({ mods = "CTRL", key = "o" })),
 		k.cmd_key("]", act.SendKey({ mods = "CTRL", key = "i" })),
@@ -23,6 +24,7 @@ M.apply_to_config = function(config)
 		k.cmd_key("p", k.multiple_actions(":GoToFile")),
 		k.cmd_key("q", k.multiple_actions(":qa!")),
 
+		k.cmd_key("/", act.EmitEvent("toggle-padding")),
 		k.cmd_key("r", act.EmitEvent("random-wallpaper")),
 		k.cmd_key("UpArrow", act.EmitEvent("decrease-opacity")),
 		k.cmd_key("DownArrow", act.EmitEvent("increase-opacity")),
@@ -45,7 +47,7 @@ M.apply_to_config = function(config)
 		k.cmd_to_tmux_prefix("e", "E"),
 		k.cmd_to_tmux_prefix("G", "G"),
 		k.cmd_to_tmux_prefix("g", "g"),
-		k.cmd_to_tmux_prefix("j", "J"),
+		k.cmd_to_tmux_prefix("j", ";"),
 		k.cmd_to_tmux_prefix("k", "K"),
 		k.cmd_to_tmux_prefix("K", "R"),
 		k.cmd_to_tmux_prefix("l", "L"),
