@@ -68,15 +68,15 @@ local function download(cache_dir, cache_path, tmp_path, url)
 	end
 end
 
-local function start_refresh_timer(interval, download_fn, callback)
-	wezterm.time.call_after(interval, function()
-		download_fn()
-		if callback then
-			callback()
-		end
-		start_refresh_timer(interval, download_fn, callback)
-	end)
-end
+-- local function start_refresh_timer(interval, download_fn, callback)
+-- 	wezterm.time.call_after(interval, function()
+-- 		download_fn()
+-- 		if callback then
+-- 			callback()
+-- 		end
+-- 		start_refresh_timer(interval, download_fn, callback)
+-- 	end)
+-- end
 
 M.apply_to_config = function(config, opts)
 	opts = opts or {}
@@ -135,11 +135,7 @@ M.apply_to_config = function(config, opts)
 				overrides.background = {
 					make_wallpaper_layer(cache_path),
 					(overrides.background and overrides.background[2])
-						or make_overlay(
-							wezterm.gui.get_appearance(),
-							state.dark_opacity,
-							state.light_opacity
-						),
+						or make_overlay(wezterm.gui.get_appearance(), state.dark_opacity, state.light_opacity),
 				}
 				window:set_config_overrides(overrides)
 			end
@@ -150,7 +146,7 @@ M.apply_to_config = function(config, opts)
 			do_download()
 			update_all_windows()
 			-- Then refresh on timer
-			start_refresh_timer(refresh_interval, do_download, update_all_windows)
+			-- start_refresh_timer(refresh_interval, do_download, update_all_windows)
 		end)
 	end
 
