@@ -17,6 +17,7 @@ require("config/rendering").apply_to_config(config)
 require("config/font").apply_to_config(config)
 require("config/appearance").apply_to_config(config)
 require("config/window").apply_to_config(config)
+require("config/tabline").apply_to_config(config)
 require("config/keys").apply_to_config(config)
 require("config/events").apply_to_config(config)
 require("config/background").apply_to_config(config, {

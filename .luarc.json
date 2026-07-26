@@ -1,0 +1,10 @@
+{
+  "runtime": {
+    "version": "LuaJIT"
+  },
+  "workspace": {
+    "library": [
+      "/Users/joshmedeski/.local/share/nvim/lazy/wezterm-types"
+    ]
+  }
+}
