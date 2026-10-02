@@ -2,6 +2,7 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 local k = require("utils/keys")
+local browser = require("utils/browser")
 local M = {}
 
 M.apply_to_config = function(config)
@@ -12,6 +13,7 @@ M.apply_to_config = function(config)
 		k.cmd_key("]", act.SendKey({ mods = "CTRL", key = "i" })),
 		k.cmd_key("f", k.multiple_actions(":Grep")),
 		k.cmd_key("F", k.multiple_actions(":FindAndReplace")),
+		k.cmd_key("u", browser.paste_active_tab_url("Helium")),
 		k.cmd_key("w", act.SendKey({ mods = "CTRL", key = "q" })),
 		-- k.cmd_key("H", act.SendKey({ mods = "CTRL", key = "h" })),
 		-- k.cmd_key("i", k.multiple_actions(":SmartGoTo")),
