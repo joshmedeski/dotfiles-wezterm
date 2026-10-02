@@ -4,11 +4,11 @@ local h = require("utils/helpers")
 local M = {}
 
 local mocha_scheme = wezterm.get_builtin_color_schemes()["Catppuccin Mocha"]
-mocha_scheme.ansi[1] = "#000000"
+mocha_scheme.ansi[1] = "#222222"
 -- mocha_scheme.ansi[8] = "#ffffff"
 
 local latte_scheme = wezterm.get_builtin_color_schemes()["Catppuccin Latte"]
-latte_scheme.ansi[1] = "#000000"
+latte_scheme.ansi[1] = "#222222"
 -- latte_scheme.ansi[8] = "#ffffff"
 
 M.apply_to_config = function(config)
