@@ -57,6 +57,7 @@ M.apply_to_config = function(config)
 		k.cmd_to_tmux_prefix("n", "%"),
 		k.cmd_to_tmux_prefix("N", '"'),
 		k.cmd_to_tmux_prefix("o", "u"),
+		k.cmd_to_tmux_prefix("q", "Q"),
 		k.cmd_to_tmux_prefix("T", "B"),
 		k.cmd_to_tmux_prefix("t", "c"),
 		k.cmd_to_tmux_prefix("W", "x"),
