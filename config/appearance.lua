@@ -4,12 +4,12 @@ local h = require("utils/helpers")
 local M = {}
 
 local mocha_scheme = wezterm.get_builtin_color_schemes()["Catppuccin Mocha"]
-mocha_scheme.ansi[1] = "#222222"
--- mocha_scheme.ansi[8] = "#ffffff"
+mocha_scheme.ansi[1] = "#111111"
+mocha_scheme.ansi[8] = "#ffffff"
 
 local latte_scheme = wezterm.get_builtin_color_schemes()["Catppuccin Latte"]
-latte_scheme.ansi[1] = "#222222"
--- latte_scheme.ansi[8] = "#ffffff"
+latte_scheme.ansi[8] = "#111111"
+latte_scheme.ansi[1] = "#ffffff"
 
 M.apply_to_config = function(config)
 	config.color_schemes = {
@@ -20,6 +20,8 @@ M.apply_to_config = function(config)
 	-- TODO: integrate dynamic color switcher (with dark/light mode)
 	-- See get_color_scheme() below for iTerm2 random picker
 	config.color_scheme = h.is_dark() and "Catppuccin Mocha" or "Catppuccin Latte"
+	config.default_cursor_style = "BlinkingBlock"
+	config.force_reverse_video_cursor = true
 
 	config.set_environment_variables = {
 		BAT_THEME = h.is_dark(nil) and "Catppuccin-mocha" or "Catppuccin-latte",
